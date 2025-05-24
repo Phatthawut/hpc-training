@@ -218,6 +218,7 @@ myqueue
 ```bash 
 cat llama_webui_*.log
 ```
+# ssh -L 7860:x1000c2s2b0n0:7860 cb7066@lanta.nstda.or.th -i C:\Users\CAMT\Downloads\cb7066\id_rsa add user
 **5. copy คำสั่งที่ได้จากการอ่านไฟล์ และ เปิด terminal ใหม่ เพื่อรันคำสั่งที่ copy มา**
 
 **6. เปิด browser ด้วย URL ด้านล่าง เพื่อเปิด LLaMa-Factory**

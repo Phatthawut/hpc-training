@@ -52,13 +52,13 @@ nano myjob.sh
 จากนั้นพิมพ์เนื้อหาดังนี้:
 
 ```bash
-#!/bin/bash
+#!/bin/bash #ขึ้นต้นคำสั่ง -#S = slurm
 #SBATCH --job-name=my_first_job  # ชื่อของงาน
 #SBATCH --output=output.txt      # ไฟล์เก็บผลลัพธ์
 #SBATCH --error=error.txt        # ไฟล์เก็บข้อผิดพลาด
 #SBATCH --time=00:02:00          # เวลารันสูงสุด (HH:MM:SS)
 #SBATCH --nodes=1                # ใช้ 1 node
-#SBATCH --ntasks=1               # ใช้ 1 task
+#SBATCH --ntasks=1               # ใช้ 1 task *สร้างกี่ process
 #SBATCH --cpus-per-task=4        # ใช้ 4 CPU core
 #SBATCH --partition=compute      # ใช้กลุ่ม CPU
 #SBATCH -A cb900908              # ระบุ Account ที่จะคิดเงิน
@@ -74,12 +74,12 @@ echo "Job Completed!"
 ✅ `#SBATCH --job-name=my_first_job` → กำหนดชื่อของงาน  
 ✅ `#SBATCH --output=output.txt` → บันทึกผลลัพธ์ของงานลงไฟล์  
 ✅ `#SBATCH --error=error.txt` → บันทึกข้อผิดพลาดที่เกิดขึ้น  
-✅ `#SBATCH --time=00:02:00` → ตั้งเวลารันสูงสุด 2 นาที  
+✅ `#SBATCH --time=00:02:00` → ตั้งเวลารันสูงสุด 2 นาที ตั้งเกินได้ คิดตังตามจริง 
 ✅ `#SBATCH --nodes=1` → ใช้ 1 เครื่อง  
 ✅ `#SBATCH --ntasks=1` → ใช้ 1 process  
 ✅ `#SBATCH --cpus-per-task=4` → ใช้ 4 CPU cores  
 ✅ `#SBATCH --partition=compute` → ใช้พาร์ทิชัน CPU  
-✅ `#SBATCH -A cb900908` → ให้ไปคิดเงินที่ account cb900908
+✅ `#SBATCH -A cb900908` → ให้ไปคิดเงินที่ account cb900908 *ประเป๋ารวม 900907
 
 ---
 
@@ -87,7 +87,7 @@ echo "Job Completed!"
 หลังจากสร้างไฟล์ `myjob.sh` แล้ว ให้ใช้คำสั่งนี้เพื่อส่งงานเข้าไปในคิว:
 
 ```bash
-sbatch myjob.sh
+sbatch myjob.sh #myqueue short for lanta
 ```
 ตัวอย่างผลลัพธ์:
 ```
